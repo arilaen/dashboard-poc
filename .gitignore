@@ -1,0 +1,20 @@
+# maybe some logs
+/log
+
+# webpack build target folder
+/build
+
+# npm modules
+/node_modules
+
+# npm errors
+npm-debug.log
+
+# for OS X users
+.DS_Store
+
+# uploaded files before processing
+/upload_temporary_storage
+
+# uploaded pictures, etc
+/upload
