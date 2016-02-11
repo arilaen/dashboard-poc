@@ -1,159 +1,53 @@
-@import "constants.scss";
+@import "../../node_modules/normalize.css/normalize";
+@import "../../node_modules/react-styleguide/dist/main";
 
-// custom fonts slow down page loading
+@import "./partials/utils";
+@import "./partials/colors";
+@import "./partials/constants";
 
-// @font-face
-// {
-// 	font-family : 'PT Sans';
-// 	font-weight : normal;
-// 	src         : url('../fonts/PT Sans/PTS55F_W.woff') format('woff');
-// }
+@import "./components/header";
+@import "./components/Overview";
+@import "./components/overview-tabs";
+@import "./components/variance";
+@import "./components/dashboard-col";
+@import "./components/dashboard-row";
+@import "./components/variance";
+@import "./components/list-menu";
+@import "./components/dashboard-col";
+@import "./components/dashboard-row";
+@import "./components/dashboard-layout";
+@import "./components/ProjectSummary";
+@import "./components/toggable-header";
 
-// @font-face
-// {
-// 	font-family : 'PT Sans';
-// 	font-style  : italic;
-// 	src         : url('../fonts/PT Sans/PTS56F_W.woff') format('woff');
-// }
+@import './components/core-layout.scss';
 
-// @font-face
-// {
-// 	font-family : 'PT Sans';
-// 	font-weight : bold;
-// 	src         : url('../fonts/PT Sans/PTS75F_W.woff') format('woff');
-// }
 
-// @font-face
-// {
-// 	font-family : 'PT Sans';
-// 	font-weight : bold;
-// 	font-style  : italic;
-// 	src         : url('../fonts/PT Sans/PTS76F_W.woff') format('woff');
-// }
-
-*,
-*:after,
-*:before
-{
-	box-sizing: border-box;
+.Styleguide-components{
+  font-size: 100%;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
 }
 
-html, body, #react_markup
-{
-	height: 100%;
-}
-
-body
-{
-	margin: 0;
-	overflow-y: scroll;
-}
-
-body, button, input, textarea, select
-{
-	// font-family : 'PT Sans';
-	font-family : Arial, Sans, Helvetica;
-}
-
-// stretches .page to 100% of html
-footer
-{
-	height: 1px;
-}
-
-img
-{
-	max-width: 100%;
-    height: auto;
-}
-
-a:active
-{
-	color: $active-darker-color;
-}
-
-button
-{
-	background : none;
-	border     : none;
-	outline    : none;
-	padding    : 0;
-
-	font-weight : bold;
-	color       : $active-color;
-
-	transition: all 30ms ease-out;
-
-	&:active
-	{
-		color: $active-lighter-color;
+.Styleguide-header {
+	h1 {
+		font-size: 1.5em;
 	}
 }
 
-nav
-{
-	padding-top:    0.4em;
-	padding-bottom: 0.5em;
+.Styleguide-sidebar-list {
+	margin: 0;
 }
 
-h1
-{
-
+.styleguide-helper {
+	width: 100%;
+	padding: 1em 0;
+	background-color: #efefef;
 }
 
-a
-{
-	color: inherit;
+.Styleguide-components-component-example{
+  overflow: hidden;
 }
 
-body, button, input, textarea, select
-{
-	font-size   : 20pt;
-}
-
-body
-{
-	margin-top    : 0.5em;
-	margin-bottom : 1em;
-}
-
-section
-{
-	margin-top    : 0.5em;
-	margin-bottom : 1em;
-
-	padding-left  : 1.8em;
-	padding-right : 1.8em;
-}
-
-.menu
-{
-	margin-left    : 0.5em;
-	margin-bottom : -0.15em !important;
-}
-
-.menu-item
-{
-	margin-left    : 0.4em;
-	margin-right   : 0.4em;
-
-	padding-bottom : 0em;
-
-	border-bottom-width : 0.12em;
-	border-bottom-color : transparent;
-	border-bottom-style : solid;
-}
-
-.menu-item-selected
-{
-	border-bottom-color : $active-color;
-}
-
-header
-{
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-
-	padding-left: 1.0em;
-	padding-right: 1.0em;
+.temp-helper {
+	background: #efefef;
+  padding: 1em 0;
 }

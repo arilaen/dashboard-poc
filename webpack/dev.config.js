@@ -1,8 +1,9 @@
-import webpack              from 'webpack';
-import assign               from 'object-assign';
-import webpackDevMiddleware from 'koa-webpack-dev-middleware';
-import webpackHotMiddleware from 'koa-webpack-hot-middleware';
-import prodConfig              from './prod.config.js';
+import webpack from 'webpack';
+import assign from 'object-assign';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import prodConfig from './prod.config.js';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 Object.assign = assign;
 
@@ -30,9 +31,17 @@ const BABEL_QUERY = {
 export default function(app) {
   const config = Object.assign(prodConfig, {
     devtool: 'inline-source-map',
-    entry:   [
+    entries:   [
       'webpack-hot-middleware/client',
-      prodConfig.entry
+      './client'
+    ],
+    plugins: [
+      new ExtractTextPlugin('style.css', {
+        allChunks: true
+      }),
+      new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
     ],
     module: {
       loaders: [
@@ -41,14 +50,23 @@ export default function(app) {
           exclude: /node_modules/,
           loader:  'babel',
           query:   BABEL_QUERY
+        },
+        {
+          test: /\.jsx?$/,
+          loader: 'eslint-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('css!sass')
+        },
+        {
+          test: /\.json$/,
+          loader: "json-loader",
+          exclude: /node_modules/
         }
       ]
-    },
-    plugins: [
-      new webpack.optimize.OccurenceOrderPlugin(),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin()
-    ],
+    }
   });
 
   const compiler = webpack(config);

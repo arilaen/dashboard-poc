@@ -1,0 +1,23 @@
+@import "../partials/colors";
+
+.overview {
+	display: inline-block;
+	width: 100%;
+	border: solid 1px #ddd;
+
+	> .label,
+	> .value,
+	> .date {
+		text-align: center;
+	}
+
+	> .label {
+		text-transform: uppercase;
+	}
+
+	> .value {
+		font-size: 3em;
+		color: $blue-light;
+		padding: .25em 0;
+	}
+}

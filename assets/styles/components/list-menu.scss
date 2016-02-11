@@ -1,0 +1,107 @@
+@import "../partials/utils";
+@import "../partials/colors";
+
+.list-menu {
+  font-size: toRem(13);
+  width: toRem(300);
+
+  height: 100%;
+  color: $grey-xlight;
+  background-color: $grey-dark;
+
+  > .list-toggle {
+    display: block;
+    fill: white;
+    padding: 0;
+    padding: toEm(12, 13) toEm(20, 13);
+    border: none;
+    width: 100%;
+    text-align: left;
+
+    .icon-navicon{
+      float: left;
+      margin-right: toEm(5, 13);
+    }
+
+    &.-open {
+      background-color: $grey-dark;
+      color: $grey-xlight;
+    }
+  }
+
+  .items {
+    @include unlist;
+    width: 100%;
+
+    &.-core{
+      margin-bottom: toEm(10, 13);
+      border-top: 1px solid #999;
+      border-bottom: 1px solid #999;
+    }
+  }
+
+  > .list-section {
+    > .name {
+      font-size: toEm(11, 13);
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: $grey-mid;
+      margin: 0;
+      padding: 0.25em 1.5em;
+      border-bottom: 0;
+    }
+  }
+
+  .items .list-item {
+    //Removes the margin-bottom on the last item in a list menu
+    &:last-child a{
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    a{
+      display: flex;
+      text-decoration: none;
+      align-items: center;
+      padding: toEm(10, 13) toEm(6, 13) toEm(10, 13) toEm(18, 13);
+      margin-bottom: toEm(1, 13);
+      color: #fff;
+      border-bottom: 1px solid $grey-mid;
+    }
+
+    &.-core {
+      background-color: $grey-mid;
+    }
+
+    .icon-angle-right {
+      height: 1.5em;
+      width: 1.5em;
+      fill: $blue-xlight;
+    }
+
+    .item-name {
+      flex: 1;
+    }
+  }
+}
+
+.list-toggle {
+  display: block;
+  fill: $blue-light;
+  color: $blue-light;
+  background: white;
+  padding: toEm(12, 13) toEm(20, 13);
+  border: none;
+  width: toRem(300);
+  text-align: left;
+  font-size: toRem(13);
+
+  &:focus {
+    outline: none;
+  }
+
+  .icon-navicon{
+    float: left;
+    margin-right: toEm(5, 13);
+  }
+}

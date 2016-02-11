@@ -1,0 +1,17 @@
+.variance {
+	&.-strong {
+		font-weight: bold;
+	}
+	&.-up {
+		&:before {
+			content: '\2191';
+		}
+	}
+	&.-down {
+		&:before {
+			content: '\2193';
+		}
+	}
+}
+
+

@@ -1,0 +1,29 @@
+@import "../partials/colors";
+
+.toggable-header {
+  display: block;
+  width: 100%;
+  padding: .5em 0;
+
+  &.hide {
+    >.children {
+      display: none;
+    }
+
+    >.toggle {
+      transform: rotate(180deg);
+    }
+  }
+
+  >.value {
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  >.toggle {
+    float: right;
+    font-size: 3.5em;
+    margin-top: 10px;
+    fill: $blue-light;
+  }
+}

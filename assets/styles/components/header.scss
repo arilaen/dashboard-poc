@@ -1,0 +1,53 @@
+@import "../partials/utils";
+@import "../partials/colors";
+
+.primary-header {
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: $grey-dark;
+  border-top: solid 4px $grey-mid;
+  width: 100%;
+  position: relative;
+  padding: toEm(10, 16) toEm(10, 16);
+  font-size: toEm(14, 16);
+  color: #fff;
+  @include cf;
+
+  >.current-product {
+    padding-left: toEm(14, 16);
+    color: #fff;
+
+    >.product-name{
+      margin-left: toEm(45, 16);
+    }
+  }
+
+  >.user-admin {
+    >.user-name {
+      padding: 0 toEm(8, 16) 0 toEm(5, 16);
+      font-weight: bold;
+    }
+
+    >.user-logout{
+      color: #fff;
+      border-left: 1px solid #fff;
+      padding-left: toEm(8, 16);
+    }
+  }
+
+  >.logo {
+    position: absolute;
+    padding: toEm(8, 16);
+    border-radius: 50%;
+    border: solid 3px #fff;
+    background: $blue-light;
+    top: 50%;
+    margin-top: toEm(-24, 16);
+    left: toEm(8, 16);
+
+    >img{
+      width: toEm(25, 16);
+      height: toEm(25, 16);
+    }
+  }
+}

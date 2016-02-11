@@ -1,41 +1,40 @@
-import koa                       from 'koa';
-import koaStatic                 from 'koa-static';
+import express                   from 'express';
 import React                     from 'react';
 import { renderToString }        from 'react-dom/server'
 import { RoutingContext, match } from 'react-router';
 import createLocation            from 'history/lib/createLocation';
-import routes                    from './src/routes';
+import routes                    from './shared/routes';
 import { Provider }              from 'react-redux';
-import * as reducers             from './src/reducers';
-import promiseMiddleware         from './src/libs/promiseMiddleware';
-import fetchComponentData        from './src/libs/fetchComponentData';
+import * as reducers             from './shared/reducers';
+import promiseMiddleware         from './shared/libs/promiseMiddleware';
+import fetchComponentData        from './shared/libs/fetchComponentData';
 import { createStore,
          combineReducers,
          applyMiddleware }       from 'redux';
 import path                      from 'path';
 
-const app = koa();
+const app = express();
 
 if (process.env.NODE_ENV !== 'production') {
   require('./webpack/dev.config').default(app);
 }
 
-app.use(koaStatic(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
-app.use( async ctx => {
+app.use( (req, res) => {
 
-  const location = createLocation(ctx.url);
+  const location = createLocation(req.url);
   const reducer  = combineReducers(reducers);
   const store    = applyMiddleware(promiseMiddleware)(createStore)(reducer);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if(err) {
       console.error(err);
-      return ctx.response.status(500).end('Internal server error');
+      return res.status(500).end('Internal server error');
     }
 
     if(!renderProps)
-      return ctx.response.status(404).end('Not found');
+      return res.status(404).end('Not found');
 
     function renderView() {
       const InitialView = (
@@ -54,25 +53,25 @@ app.use( async ctx => {
         <head>
           <meta charset="utf-8">
           <title>Dashboard POC</title>
+          <link rel="stylesheet" type="text/css" href="/style.css">
           <script>
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
           </script>
         </head>
         <body>
-          <div id="react-view">${componentHTML}</div>
-          <script type="application/javascript" src="/bundle.js"></script>
+          <div id="root">${componentHTML}</div>
+          <script type="application/javascript" src="/client.js"></script>
         </body>
       </html>
       `;
-//<link rel="stylesheet" type="text/css" href="/public/style.css">
 
       return HTML;
     }
 
     fetchComponentData(store.dispatch, renderProps.components, renderProps.params)
       .then(renderView)
-      .then(html => ctx.response.end(html))
-      .catch(err => ctx.response.end(err.message));
+      .then(html => res.end(html))
+      .catch(err => res.end(err.message));
   });
 });
 

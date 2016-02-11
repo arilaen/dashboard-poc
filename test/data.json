@@ -1,0 +1,122 @@
+{
+   "data":{
+      "firstDataSet":{
+         "title":"Year To Date Revenue",
+         "value":"$2.25M",
+         "date":"5/11/15",
+         "tabData":[
+            {
+               "label":"2015 Projected",
+               "value":"$6.10M",
+               "variance":false
+            },
+            {
+               "label":"Progress",
+               "value":"36%",
+               "variance":false
+            }
+         ]
+      },
+      "secondDataSet":{
+         "title":"Resource Utilization",
+         "value":"67%",
+         "amount":10,
+         "date":"5/11/15",
+         "tabData":[
+            {
+               "label":"PM 52%",
+               "value":20,
+               "variance":true
+            },
+            {
+               "label":"TECH 80%",
+               "value":10,
+               "variance":true
+            },
+            {
+               "label":"XD 62%",
+               "value":-3,
+               "variance":true
+            }
+         ]
+      },
+      "thirdDataSet":{
+         "title":"ElSevier",
+         "subtitle":"[SOW1 CO4] ElSevier Design and Development",
+         "tabData":[
+            {
+               "label":"complete",
+               "value":"75%"
+            },
+            {
+               "label":"CPI",
+               "value":".94"
+            },
+            {
+               "label":"Budget",
+               "value":"$1,123,345"
+            },
+            {
+               "label":"Variance",
+               "value":"$10,321"
+            }
+         ]
+      },
+      "fourthDataSet":{
+         "projects":[
+            {
+               "dashboardDetailApiURL": "https://cantina-intranet/projects/9619519",
+               "companyName": "blah",
+               "projectName": "blah",
+               "harvestID": 9619519,
+               "harvestURL": "https://cantina.harvestapp.com/projects/9619519",
+               "projectStatus": "atRisk",
+               "percentComplete": 75,
+               "cpi": 0.94,
+               "budget": 1000000,
+               "projectedVariance": 10000
+            },
+            {
+               "dashboardDetailApiURL": "https://cantina-intranet/projects/9619519",
+               "companyName": "blah2",
+               "projectName": "blah2",
+               "harvestID": 9619519,
+               "harvestURL": "https://cantina.harvestapp.com/projects/9619519",
+               "projectStatus": "atRisk",
+               "percentComplete": 75,
+               "cpi": 0.94,
+               "budget": 1000000,
+               "projectedVariance": 10000
+            },
+            {
+               "dashboardDetailApiURL": "https://cantina-intranet/projects/9619519",
+               "companyName": "blah2",
+               "projectName": "blah2",
+               "harvestID": 9619519,
+               "harvestURL": "https://cantina.harvestapp.com/projects/9619519",
+               "projectStatus": "atRisk",
+               "percentComplete": 75,
+               "cpi": 0.94,
+               "budget": 1000000,
+               "projectedVariance": 10000
+            }
+         ]
+      },
+      "projects":[
+         {
+            "company":"Avid Technology",
+            "projects":[
+               "Experience Design Guidance and Support",
+               "project two"
+            ]
+         },
+         {
+            "company":"Clothbound",
+            "projects":[
+               "project one",
+               "project two"
+            ]
+         }
+      ]
+   }
+}

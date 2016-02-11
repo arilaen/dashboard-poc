@@ -1,17 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: [
-    './src/client/application'
-  ],
+  entry: './client',
   resolve: {
     modulesDirectories: ['node_modules', 'shared'],
     extensions:         ['', '.js', '.jsx']
   },
   output: {
     path:       path.join(__dirname, 'dist'),
-    filename:   'bundle.js',
+    filename:   'client.js',
     publicPath: '/'
   },
   module: {
@@ -19,7 +18,16 @@ module.exports = {
       {
         test:    /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel']
+        loaders: ['babel', 'eslint-loader']
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass')
+      },
+      {
+        test: /\.json$/,
+        loader: "json-loader",
+        exclude: /node_modules/
       }
     ]
   },
@@ -33,6 +41,9 @@ module.exports = {
       compress: {
         warnings: false
       }
+    }),
+    new ExtractTextPlugin('style.css', {
+      allChunks: true
     })
   ]
 };
