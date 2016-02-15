@@ -1,30 +1,42 @@
-import Immutable from 'immutable';
+import { Map } from 'immutable';
 
-const defaultState = new Immutable.List();
-
-// const initialState = {
-//   loading: true,
-//   myProjectsVisible: true,
-//   allProjectsVisible: true
-// };
-
-export default function projectReducer (initialState, {
-  ['TOGGLE_MY_PROJECTS']: (state) => ({
-    myProjectsVisible: !state.myProjectsVisible
-  }),
-  ['TOGGLE_ALL_PROJECTS']: (state) => ({
-    allProjectsVisible: !state.allProjectsVisible
-  }),
-  ['ALL_PROJECTS_LOADING']: (state) => ({
-    ...state,
-    loading: true
-  }),
-  ['ALL_PROJECTS_SUCCESS']: (state, { data }) => ({
-    data,
-    loading: false
-  }),
-  ['ALL_PROJECTS_FAIL']: (state, { error }) => ({
-    error,
-    loading: false
-  })
+const initialState = new Map({
+  loading: true,
+  myProjectsLoading: true,
+  allProjects: [],
+  myProjects: [],
+  myProjectsVisible: true,
+  allProjectsVisible: true,
+  error: false
 });
+
+export default function projects(state = initialState, action) {
+  console.log(action);
+  switch (action.type) {
+    case 'TOGGLE_MY_PROJECTS': {
+      const myProjectsVisible = !state.myProjectsVisible;
+      return state.set({ myProjectsVisible });
+    }
+    case 'TOGGLE_ALL_PROJECTS': {
+      const allProjectsVisible = !state.allProjectsVisible;
+      return state.set(allProjectsVisible);
+    }
+    case 'PROJECTS_LOADING': {
+      return state.set('loading', true).set('myProjectsLoading', true);
+    }
+    case 'GET_PROJECTS_COMPLETE': {
+      return state.set('loading', false).set('allProjects', action.allProjects);
+    }
+    case 'GET_PROJECTS_FAIL': {
+      return state.set('loading', false).set(action.error);
+    }
+    case 'GET_MY_PROJECTS_COMPLETE': {
+      return state.set('myProjectsLoading', false).set('myProjects', action.myProjects);
+    }
+    case 'GET_MY_PROJECTS_FAIL': {
+      return state.set('myProjectsLoading', false).set(action.error);
+    }
+    default:
+      return state;
+  }
+}

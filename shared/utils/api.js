@@ -1,8 +1,8 @@
 import request from 'axios';
 
-const rootUrl = 'http://localhost:3000/';
+export const rootUrl = 'http://localhost:3000/';
 
-export const getResource = function getResource(url) {
-  return request(rootUrl + url)
-  .then(response => response.json());
-};
+export const getResource = (url) => request(rootUrl + url);
+
+// Mock variable until harvest authentication is integrated into front end
+export const harvestUserId = 508343;

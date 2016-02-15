@@ -1,17 +1,17 @@
-import express                   from 'express';
-import React                     from 'react';
-import { renderToString }        from 'react-dom/server'
+import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server'
 import { RoutingContext, match } from 'react-router';
-import createLocation            from 'history/lib/createLocation';
-import routes                    from './shared/routes';
-import { Provider }              from 'react-redux';
-import * as reducers             from './shared/reducers';
-import promiseMiddleware         from './shared/libs/promiseMiddleware';
-import fetchComponentData        from './shared/libs/fetchComponentData';
+import createLocation from 'history/lib/createLocation';
+import routes from './shared/routes';
+import { Provider } from 'react-redux';
+import rootReducer from './shared/reducers';
+import thunk from 'redux-thunk';
+import fetchComponentData from './shared/libs/fetchComponentData';
 import { createStore,
          combineReducers,
-         applyMiddleware }       from 'redux';
-import path                      from 'path';
+         applyMiddleware } from 'redux';
+import path from 'path';
 
 const app = express();
 
@@ -24,8 +24,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use( (req, res) => {
 
   const location = createLocation(req.url);
-  const reducer  = combineReducers(reducers);
-  const store    = applyMiddleware(promiseMiddleware)(createStore)(reducer);
+  const store = createStore(rootReducer, applyMiddleware(thunk));
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if(err) {

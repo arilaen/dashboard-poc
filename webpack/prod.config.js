@@ -25,6 +25,14 @@ module.exports = {
         loader: ExtractTextPlugin.extract('css!sass')
       },
       {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+      // {
+      //   test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+      //   loader: "url?limit=100000"
+      // },
+      {
         test: /\.json$/,
         loader: "json-loader",
         exclude: /node_modules/

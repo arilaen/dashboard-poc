@@ -1,0 +1,98 @@
+[
+  [
+    {
+      "user_assignment": {
+        "user_id": 508343,
+        "project_id": 9619519,
+        "is_project_manager": false,
+        "deactivated": false,
+        "hourly_rate": 0,
+        "id": 39918789,
+        "budget": null,
+        "created_at": "2014-03-12T15:35:35Z",
+        "updated_at": "2014-07-15T16:33:05Z",
+        "estimate": null
+      }
+    }
+  ],
+  [
+    {
+      "user_assignment": {
+        "user_id": 508343,
+        "project_id": 96323232,
+        "is_project_manager": true,
+        "deactivated": false,
+        "hourly_rate": 0,
+        "id": 39918789,
+        "budget": null,
+        "created_at": "2014-03-12T15:35:35Z",
+        "updated_at": "2014-07-15T16:33:05Z",
+        "estimate": null
+      }
+    }
+  ],
+  [
+    {
+      "user_assignment": {
+        "user_id": 508343,
+        "project_id": 9619916,
+        "is_project_manager": false,
+        "deactivated": false,
+        "hourly_rate": 0,
+        "id": 39918789,
+        "budget": null,
+        "created_at": "2014-03-12T15:35:35Z",
+        "updated_at": "2014-07-15T16:33:05Z",
+        "estimate": null
+      }
+    }
+  ],
+  [
+    {
+      "user_assignment": {
+        "user_id": 508343,
+        "project_id": 9619212,
+        "is_project_manager": false,
+        "deactivated": false,
+        "hourly_rate": 0,
+        "id": 39918789,
+        "budget": null,
+        "created_at": "2014-03-12T15:35:35Z",
+        "updated_at": "2014-07-15T16:33:05Z",
+        "estimate": null
+      }
+    }
+  ],
+  [
+    {
+      "user_assignment": {
+        "user_id": 508343,
+        "project_id": 9619519,
+        "is_project_manager": true,
+        "deactivated": false,
+        "hourly_rate": 0,
+        "id": 39918789,
+        "budget": null,
+        "created_at": "2014-03-12T15:35:35Z",
+        "updated_at": "2014-07-15T16:33:05Z",
+        "estimate": null
+      }
+    }
+  ],
+  [
+    {
+      "user_assignment": {
+        "user_id": 508343,
+        "project_id": 9619513,
+        "is_project_manager": false,
+        "deactivated": false,
+        "hourly_rate": 0,
+        "id": 39918789,
+        "budget": null,
+        "created_at": "2014-03-12T15:35:35Z",
+        "updated_at": "2014-07-15T16:33:05Z",
+        "estimate": null
+      }
+    }
+  ]
+]

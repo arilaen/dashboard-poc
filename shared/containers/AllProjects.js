@@ -8,8 +8,12 @@ import ToggableHeader from '../components/ToggableHeader';
 import ProjectSummary from '../components/ProjectSummary';
 
 function mapStateToProps(state) {
+  const projects = state.projects.toObject();
   return {
-    Projects: state.allProjects
+    allProjects: projects.allProjects,
+    myProjects: projects.myProjects,
+    allProjectsVisible: projects.allProjectsVisible,
+    myProjectsVisible: projects.myProjectsVisible
   };
 }
 
@@ -23,7 +27,7 @@ class AllProjects extends React.Component {
 
   componentWillMount() {
     const { dispatch } = this.props;
-    dispatch(actions.fetchAllProjects());
+    dispatch(actions.getProjects());
   }
 
   handleMyClick() {
@@ -38,29 +42,31 @@ class AllProjects extends React.Component {
 
   renderSectionWithData(data) {
     return data.map((project, i) =>
-        <div className="dashboard-col -single">
+        <div className="dashboard-col -single" key={i}>
           <ProjectSummary data={project} />
         </div>
     );
   }
 
   render() {
-    const { children, Projects } = this.props;
-    const data = [];
-    const { myProjects, allProjects } = data;
+    const { children, allProjects, myProjects, allProjectsVisible, myProjectsVisible } = this.props;
     return (
       <div className="projects-container">
         <ToggableHeader
           value="My Projects"
           onToggleClick={this.handleMyClick}
-          className={ classNames('toggable-header', { hide : !Projects.myProjectsVisible })}
+          className={ classNames('toggable-header',
+            { hide : !myProjectsVisible }
+          )}
         >
           <div className="dashboard-layout">
             { this.renderSectionWithData(myProjects) }
           </div>
         </ToggableHeader>
         <ToggableHeader value="All Projects"
-          className={ classNames('toggable-header', { hide : !Projects.allProjectsVisible })}
+          className={ classNames('toggable-header',
+            { hide : !allProjectsVisible }
+          )}
           onToggleClick={this.handleAllClick}
         >
           <div className="dashboard-layout">
@@ -75,7 +81,10 @@ class AllProjects extends React.Component {
 AllProjects.propTypes = {
   children: React.PropTypes.object,
   dispatch: React.PropTypes.func,
-  Projects: React.PropTypes.object
+  allProjects: React.PropTypes.array,
+  myProjects: React.PropTypes.array,
+  allProjectsVisible: React.PropTypes.bool,
+  myProjectsVisible: React.PropTypes.bool
 };
 
 export default connect(

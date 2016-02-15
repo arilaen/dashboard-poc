@@ -1,3 +1,8 @@
-// Can add more reducers here once more than projects have been implemented
+import { combineReducers } from 'redux';
+import projects from './ProjectReducer';
 
-export { default as projects } from './ProjectReducer';
+const rootReducer = combineReducers({
+  projects
+});
+
+export default rootReducer;
