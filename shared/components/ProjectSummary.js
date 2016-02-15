@@ -6,7 +6,7 @@ import classNames from 'classnames';
 export default class ProjectSummary extends React.Component {
 
   renderTableData() {
-    const { percentComplete, cpi, budget, variance } = this.props.data;
+    const { percentComplete, cpi, budget, projectedVariance } = this.props.data;
     const arr = [];
 
     return (
@@ -14,7 +14,7 @@ export default class ProjectSummary extends React.Component {
         <DataBlock label="complete" value={percentComplete} type="percent" key="0" />
         <DataBlock label="cpi" value={cpi} type="number" key="1" />
         <DataBlock label="budget" value={budget} type="currency" key="2" />
-        <DataBlock label="variance" value={variance} type="variance" key="3" />
+        <DataBlock label="variance" value={projectedVariance} type="variance" key="3" />
       </div>
     );
   }

@@ -17,10 +17,10 @@ describe('ProjectSummary Component', () => {
       projectStatus: "onTarget",
       projectedVariance: 10000,
       stats: {
-        Budget: "$1000000",
+        Budget: 1000000,
         cpi: 0.94,
-        percent: "75%",
-        variance: "$10000",
+        percent: 75,
+        variance: 10000,
       }
     };
   	const component = TestUtils.renderIntoDocument(<ProjectSummary data={data}/>);
@@ -52,7 +52,7 @@ describe('ProjectSummary Component', () => {
     const component = renderComponent();
     const value = component.querySelectorAll('.value')[3].innerHTML;
     const label = component.querySelectorAll('.label')[3].innerHTML;
-    expect(value).toBe('$10000');
+    expect(value).toBe('+$10,000');
     expect(label).toBe('variance');
   });
 });
