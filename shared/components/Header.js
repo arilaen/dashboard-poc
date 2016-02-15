@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'; /* eslint no-unused-vars:0 */
+import Isvg from 'react-inlinesvg';
 
 export default class Header extends React.Component {
 
@@ -23,7 +24,7 @@ export default class Header extends React.Component {
     return (
       <header className="primary-header">
         <a className="logo" href="/">
-          <img src="../../assets/images/cantina-logo.svg" />
+          <Isvg src="../../assets/images/cantina-logo.svg" />
         </a>
         <div className="pull-left current-product">
           { /* TODO: This will be replaced with a dropdown component */ }

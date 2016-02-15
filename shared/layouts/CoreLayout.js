@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'; /* eslint no-unused-vars:0 */
 import { Link } from 'react-router';
-
 import Header from '../components/Header';
 
 export default class CoreLayout extends React.Component {

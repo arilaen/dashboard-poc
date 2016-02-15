@@ -4,10 +4,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './client',
-  resolve: {
-    modulesDirectories: ['node_modules', 'shared'],
-    extensions:         ['', '.js', '.jsx']
-  },
   output: {
     path:       path.join(__dirname, 'dist'),
     filename:   'client.js',
@@ -28,10 +24,10 @@ module.exports = {
         test: /\.css$/,
         loader: "style-loader!css-loader"
       },
-      // {
-      //   test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
-      //   loader: "url?limit=100000"
-      // },
+      {
+        test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: "url-loader?limit=100000"
+      },
       {
         test: /\.json$/,
         loader: "json-loader",
