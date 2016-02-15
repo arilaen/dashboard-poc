@@ -57,7 +57,7 @@
             width: 50%;
 
             &:nth-child(2n) {
-              border-right: solid 1px $grey-light;
+              border-left: solid 1px $grey-light;
             }
 
             &:nth-of-type(1),
