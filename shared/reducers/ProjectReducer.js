@@ -11,7 +11,6 @@ const initialState = new Map({
 });
 
 export default function projects(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case 'TOGGLE_MY_PROJECTS': {
       const myProjectsVisible = !state.myProjectsVisible;

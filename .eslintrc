@@ -18,7 +18,6 @@
       "ignoreComments": true,
       "ignoreUrls": true,
       "ignorePattern": "^const [A-Z\\_]+\\s?="
-    }],
-    "no-console":0
+    }]
   }
 }
