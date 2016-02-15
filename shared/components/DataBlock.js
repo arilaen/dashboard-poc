@@ -15,6 +15,8 @@ export default class DataBlock extends React.Component {
   }
 }
 
+// MR: For now value is optional since this block sets the number to 0 by default
+
 DataBlock.propTypes = {
   label: React.PropTypes.string.isRequired,
   value: React.PropTypes.number,
