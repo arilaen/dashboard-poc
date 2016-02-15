@@ -6,26 +6,22 @@ import ProjectSummary from './ProjectSummary';
 describe('ProjectSummary Component', () => {
 	function renderComponent() {
     const data = {
-      title: "ElSevier",
-      subtitle: "[SOW1 CO4] ElSevier Design and Development",
-      tabData: [
-        {
-          label: "complete",
-          value: "75%",
-        },
-        {
-          label: "CPI",
-          value: ".94",
-        },
-        {
-          label: "Budget",
-          value: "$1,123,345",
-        },
-        {
-          label: "Variance",
-          value: "$10,321",
-        }
-      ]
+      budget: 1000000,
+      companyName: "ElSevier",
+      cpi: 0.94,
+      dashboardDetailApiURL: "https://cantina-intranet/projects/9619519",
+      harvestID: 9619519,
+      harvestURL: "https://cantina.harvestapp.com/projects/9619519",
+      percentComplete: 75,
+      projectName: "[SOW1 CO4] ElSevier Design and Development",
+      projectStatus: "onTarget",
+      projectedVariance: 10000,
+      stats: {
+        Budget: "$1000000",
+        cpi: 0.94,
+        percent: "75%",
+        variance: "$10000",
+      }
     };
   	const component = TestUtils.renderIntoDocument(<ProjectSummary data={data}/>);
   	return ReactDOM.findDOMNode(component);
@@ -56,7 +52,7 @@ describe('ProjectSummary Component', () => {
     const component = renderComponent();
     const value = component.querySelectorAll('.value')[3].innerHTML;
     const label = component.querySelectorAll('.label')[3].innerHTML;
-    expect(value).toBe('$10,321');
-    expect(label).toBe('Variance');
+    expect(value).toBe('$10000');
+    expect(label).toBe('variance');
   });
 });

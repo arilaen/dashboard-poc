@@ -1,44 +1,46 @@
 @import "../partials/colors";
 
 .project-summary {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
     display: inline-block;
     width: 100%;
-    border: solid 1px $grey-light;
+    box-shadow: inset 0 0 0 1px $grey-light;
 
     > .colored-status-bar {
         height: 0.7em;
         width:100%;
 
         &.at-risk {
-            background-color: $red-orange;
+          background-color: $red-orange;
         }
 
         &.on-target {
-            background-color: $blue-light;
+          background-color: $blue-light;
         }
 
         &.a-concern {
-            background-color: $orange;
+          background-color: $orange;
         }
     }
 
     > .header {
         background-color: $grey-xlight;
         padding: 0.5em;
+        margin: 0 1px;
 
         > .title,
         > .subtitle {
-            margin: 0.25em;
+          margin: 0.25em;
         }
 
         > .subtitle {
-            font-weight: normal;
+          font-weight: normal;
         }
     }
 
     .title,
     .label {
-        text-transform: uppercase;
+      text-transform: uppercase;
     }
 
     > .table-data {
@@ -63,12 +65,10 @@
               border-bottom: solid 1px $grey-light;
             }
 
-            > .value {
-                margin: 0em;
-            }
-
+            > .value,
             > .label {
                 margin: 0em;
+                white-space: nowrap;
             }
         }
     }

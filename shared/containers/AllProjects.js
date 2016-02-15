@@ -9,9 +9,11 @@ import ProjectSummary from '../components/ProjectSummary';
 
 function mapStateToProps(state) {
   const projects = state.projects.toObject();
+  const allProjects = Array.isArray(projects.allProjects) ? projects.allProjects : [];
+  const myProjects = Array.isArray(projects.myProjects) ? projects.myProjects : [];
   return {
-    allProjects: projects.allProjects,
-    myProjects: projects.myProjects,
+    allProjects,
+    myProjects,
     allProjectsVisible: projects.allProjectsVisible,
     myProjectsVisible: projects.myProjectsVisible
   };
