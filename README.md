@@ -5,7 +5,7 @@
 ## Created with
 
 - Isomorphic React + Redux
-- Koa for rendering pages server side
+- Express for rendering pages server side (Koa on a separate branch)
 - Babel + ES6
 - Webpack
 - (Passport for Github/Google/Harvest integration - may be replaced)
